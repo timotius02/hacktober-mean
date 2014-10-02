@@ -8,6 +8,7 @@ hacktober-mean
 This repository will include many tutorial projects and experiments relating to the **MEAN** stack.
 
 The stack consists of 
+
 1. MongoDB - NoSQL database 
 2. Express.js - Node.js framework for developing webapps
 3. Angular.js - Front-end Mode-View-Whatever framework
