@@ -18,6 +18,6 @@ The stack consists of
 ######Project list:
 |Project Name | Description | 
 |-------------|-------------|
-| **/scotchTodo** | simple todo example using the mean stack |
-| **/scotchApi** | created a RESTful api and database interface using Express |
-| **/nodeScraping** | web scraping using node.js and Cheerio |
+| **scotchTodo/** | simple todo example using the mean stack |
+| **scotchApi/** | created a RESTful api and database interface using Express |
+| **nodeScraping/** | web scraping using node.js and Cheerio |
