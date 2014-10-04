@@ -15,9 +15,9 @@ The stack consists of
 4. Node.js - <3
 
 
-
 ######Project list:
 |Project Name | Description | 
 |-------------|-------------|
-| **/scotchTodo** | simple todo example using the mean stack|
-| **/scotchApi** | creating a REST api and database interface using Express|
+| **/scotchTodo** | simple todo example using the mean stack |
+| **/scotchApi** | created a RESTful api and database interface using Express |
+| **/nodeScraping** | web scraping using node.js and Cheerio |
