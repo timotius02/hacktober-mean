@@ -22,4 +22,4 @@ The stack consists of
 | **scotchApi/** | created a RESTful api and database interface using Express |
 | **nodeScraping/** | web scraping using node.js and Cheerio |
 | **gruntMean/** | Automate tasks via Grunt ie. liveReload, jshint, js/cssmin |
-| **angularServices/** | difference between`` Factory, Service, and Provider in Angular|
+| **angularServices/** | difference between Factory, Service, and Provider in Angular|
