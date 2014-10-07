@@ -12,7 +12,8 @@ app.service('myService', function($http, $q){
 		return _finalUrl;
 	}
 
-	//Factori
+	//Services are instantiated with 'new keyword' hence they are created as a new object
+	//which is why we use the 'this' keyword to attach methods
 	this.setArtist = function(artist){
 		_artist = artist;
 	}
