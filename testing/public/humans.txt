@@ -1,0 +1,11 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Timotius Sitorus -- Web Developer -- @timsitorus1
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3, SASS
+    Normalize.css, jQuery, Modernizr
