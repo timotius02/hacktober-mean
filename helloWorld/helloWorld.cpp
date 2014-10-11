@@ -7,3 +7,14 @@
 //
 
 #include "helloWorld.h"
+#include <iostream>
+
+int main()
+{
+    using namespace std;
+
+    int x;
+    cin >> x;
+    cout << x << endl;
+    return 0;
+}
