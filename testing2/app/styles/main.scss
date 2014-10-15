@@ -1,152 +1,244 @@
-$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+$icon-font-path:"../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
-@import "bourbon";
+@import"bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
-
+@import"bourbon";
 $bg: #3498db;
 $line: #fff;
 $perspective: 40000;
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: $line;
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
+$baseLength: 100px;
+// Z-Index Scale (private vars)
+// --------------------------------------------------
+$zIndex-1: 100;
+$zIndex-2: 200;
+$zIndex-3: 300;
+$zIndex-4: 400;
+$zIndex-5: 500;
+$zIndex-6: 600;
+$zIndex-7: 700;
+$zIndex-8: 800;
+$zIndex-9: 900;
+$zIndex-10: 1000;
+@mixin float-text {
+    position: absolute;
+    display: block;
+    top: 101%;
+    left: -10%;
+    width: 128%;
+    text-align: center;
+    font-size: 12px;
 }
-
-
+* {
+    margin: 0;
+    padding: 0;
+}
+//=========================sections
 body {
-  background-color: $bg;
-  font-family: Helvetica, sans-serif;
+    background-color: $bg;
+    font-family: Helvetica, sans-serif;
+    //color: $line;
 }
-.cube,.half1,.half2,.container,.side {
-  @include transform-style( preserve-3d );
+.nav-header {
+    margin-top: 2%;
+    margin-left: 5%;
+    .main {
+        a {
+            display: inline-block;
+            color: $line;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+        h1 {
+            //color: rgba(255, 255, 255, 0.45);
+            font-weight: 600;
+            font-size: 22px;
+            letter-spacing: 0;
+            text-transform: uppercase;
+            margin-bottom: 0;
+        }
+        h3 {
+            font-size: 13px;
+            font-weight: 200;
+            margin: 0;
+            padding: 0;
+            margin-top: 6px;
+            color: rgba(0, 0, 0, 0.55);
+        }
+    }
+    .social {
+        position: absolute;
+        top: 25px;
+        right: 0;
+        a {
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+            zoom: 1;
+            vertical-align: top;
+            color: $line;
+            &:hover {
+                color: black;
+            }
+        }
+        .twitter:hover:after {
+            content: 'Twitter';
+            @include float-text;
+        }
+        .linkedin:hover:after {
+            content: 'Linkedin';
+            @include float-text;
+        }
+        .github:hover:after {
+            content: 'Github';
+            @include float-text;
+        }
+        .medium:hover:after {
+            content: 'Medium';
+            @include float-text;
+        }
+    }
 }
-.container {
-  max-width: 500px;
-  height: 500px;
-  margin: 0 auto;
-  padding-bottom: 0;
-  z-index: -999;
-  text-align: center;
-  @include perspective( $perspective + px );
-
+footer {
+    text-align: center;
+    padding-top: 19px;
+    border-top: 2px solid #e5e5e5;
 }
-
+//fonts
+.title-font {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+.flair-font {
+    font-family: Georgia, "Lucida Sans", serif;
+    font-style: italic;
+}
+//==============Cubic animation
+.cube, .half1, .half2, .container, .side {
+    @include transform-style( preserve-3d);
+}
+#cubeContainer {
+    max-width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    padding-bottom: 0;
+    z-index: -999;
+    text-align: center;
+    @include perspective( $perspective + px);
+}
 .cube {
-  margin: auto;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  left: -17%;
-  width: 500px;
-  height: 500px;
-  @include transform( rotateX(185deg) rotateY(0deg) rotateZ(45deg) ); 
-  @include transform-origin( center );
-  @include animation( cube 5.0s forwards infinite );
-  @include animation-timing-function( cubic-bezier(.97,1,.66,.9) );
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    left: -17%;
+    width: 500px;
+    height: 500px;
+    @include transform( rotateX(185deg) rotateY(0deg) rotateZ(45deg));
+    @include transform-origin( center);
+    @include animation( cube 5.0s forwards infinite);
+    @include animation-timing-function( cubic-bezier(.97, 1, .66, .9));
 }
 .half1 {
-  height: 100px;
-  top: 0;
-  position: absolute;
-  @include transform( rotateX(-90deg) );
-  @include transform-origin( 50% 100% );
+    height: $baseLength;
+    top: 0;
+    position: absolute;
+    @include transform( rotateX(-90deg));
+    @include transform-origin( 50% 100%);
 }
 .side {
-  width: 100px;
-  height: 100px;
-  border: 2px solid $line;
-  background: transparent;
-  position: absolute;
-  overflow: hidden;
-  @include box-sizing( border-box );
-  // &:after {
-  //   content: '';
-  //   position: absolute;
-  //   height: 2px;
-  //   width: 400px;
-  //   background: $line;
-  //   left: 50%;
-  //   top: 50%;
-  //   @include transform( translate3d(-50%,-50%,0) );
-  //   @include transform-origin( center center );
-  //   @include transition ( all 400ms ease-in-out );
-  // }
-  // &:before {
-  //   content: '';
-  //   position: absolute;
-  //   width: 2px;
-  //   height: 400px;
-  //   background: $line;
-  //   left: 50%;
-  //   top: 50%;
-  //   @include transform( translate3d(-50%,-50%,0) );
-  //   @include transform-origin( center center );
-  //   @include transition ( all 400ms ease-in-out );
-  // }
+    width: $baseLength;
+    height: $baseLength;
+    border: 3px solid $line;
+    background: transparent;
+    position: absolute;
+    overflow: hidden;
+    @include box-sizing( border-box);
+    // &:after {
+    //   content: '';
+    //   position: absolute;
+    //   height: 2px;
+    //   width: 400px;
+    //   background: $line;
+    //   left: 50%;
+    //   top: 50%;
+    //   @include transform( translate3d(-50%,-50%,0) );
+    //   @include transform-origin( center center );
+    //   @include transition ( all 400ms ease-in-out );
+    // }
+    // &:before {
+    //   content: '';
+    //   position: absolute;
+    //   width: 2px;
+    //   height: 400px;
+    //   background: $line;
+    //   left: 50%;
+    //   top: 50%;
+    //   @include transform( translate3d(-50%,-50%,0) );
+    //   @include transform-origin( center center );
+    //   @include transition ( all 400ms ease-in-out );
+    // }
 }
 .s1 {
-  top:0;
-  left: 200px;
-  @include transform-origin( 50% 100% );
-  @include transform( rotateX(-90deg) );
+    top: 0;
+    left: 2 * $baseLength;
+    @include transform-origin( 50% 100%);
+    @include transform( rotateX(-90deg));
 }
 .s2 {
-  top: 100px;
-  left: 200px;
-  @include transform-origin( 50% 0% );
+    top: $baseLength;
+    left: 2 * $baseLength;
+    @include transform-origin( 50% 0%);
 }
 .s3 {
-  top: 200px;
-  left: 200px;
-  @include transform-origin( 50% 0% );
+    top: 2 * $baseLength;
+    left: 2 * $baseLength;
+    @include transform-origin( 50% 0%);
 }
 .s4 {
-  top: 300px;
-  left: 200px;
-  @include transform-origin( 50% 0% );
-  @include transform( rotateX(90deg) );
+    top: 3 * $baseLength;
+    left: 2 * $baseLength;
+    @include transform-origin( 50% 0%);
+    @include transform( rotateX(90deg));
 }
 .s5 {
-  left:100px;
-  top: 100px;
-  @include transform-origin( 100% 50% );
-  @include transform( rotateY(90deg) );
+    left: $baseLength;
+    top: $baseLength;
+    @include transform-origin( 100% 50%);
+    @include transform( rotateY(90deg));
 }
 .s6 {
-  left:300px;
-  top: 200px;
-  @include transform-origin( 0% 50% );
-  @include transform( rotateY(-90deg) );
+    left: 3 * $baseLength;
+    top: 2 * $baseLength;
+    @include transform-origin( 0% 50%);
+    @include transform( rotateY(-90deg));
 }
-@include keyframes( cube ) {
-  0% {
-    @include transform( rotateX(55deg) rotateY(0deg) rotateZ(45deg) ); 
-  }
-  12.5% {
-    @include transform( rotateX(55deg) rotateY(0deg) rotateZ(45deg) );
-  }
-  25% {
-    @include transform( rotateX(55deg) rotateY(0deg) rotateZ(135deg) );
-  }
-  37.5% {
-    @include transform( rotateX(55deg) rotateY(0deg) rotateZ(135deg) );
-  }
-  50% {
-    @include transform( rotateX(125deg) rotateY(0deg) rotateZ(135deg) ); 
-  }
-  62.5% {
-    @include transform( rotateX(125deg) rotateY(0deg) rotateZ(135deg) ); 
-  }
-  75% {
-    @include transform( rotateX(125deg) rotateY(0deg) rotateZ(45deg) );
-  }
-  87.5% {
-    @include transform( rotateX(125deg) rotateY(0deg) rotateZ(45deg)  );
-  }
-  100% {
-    @include transform( rotateX(55deg) rotateY(0deg) rotateZ(45deg) );
-  }
+@include keyframes( cube) {
+    0% {
+        @include transform( rotateX(55deg) rotateY(0deg) rotateZ(45deg));
+    }
+    12.5% {
+        @include transform( rotateX(55deg) rotateY(0deg) rotateZ(45deg));
+    }
+    25% {
+        @include transform( rotateX(55deg) rotateY(0deg) rotateZ(135deg));
+    }
+    37.5% {
+        @include transform( rotateX(55deg) rotateY(0deg) rotateZ(135deg));
+    }
+    50% {
+        @include transform( rotateX(125deg) rotateY(0deg) rotateZ(135deg));
+    }
+    62.5% {
+        @include transform( rotateX(125deg) rotateY(0deg) rotateZ(135deg));
+    }
+    75% {
+        @include transform( rotateX(125deg) rotateY(0deg) rotateZ(45deg));
+    }
+    87.5% {
+        @include transform( rotateX(125deg) rotateY(0deg) rotateZ(45deg));
+    }
+    100% {
+        @include transform( rotateX(55deg) rotateY(0deg) rotateZ(45deg));
+    }
 }
