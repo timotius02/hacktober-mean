@@ -1,9 +1,9 @@
 hacktober-mean
 ==============
 
-###Coding everyday and exploring new topics every week
+### Coding everyday and exploring new topics every week
 
-#####Week 1 The MEAN Stack
+#### Week 1 The MEAN Stack
 
 This repository will include many tutorial projects and experiments relating to the **MEAN** stack.
 
@@ -15,7 +15,7 @@ The stack consists of
 4. Node.js - <3
 
 
-######Project list:
+#### Project list:
 |Project Name | Description | 
 |-------------|-------------|
 | **scotchTodo/** | simple todo example using the mean stack |
